@@ -1,0 +1,39 @@
+{
+	"name": "mcp-currency-converter",
+	"version": "1.0.0",
+	"description": "A simple MCP server for USD to CNY conversion",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": ["dist", "README.md", "LICENSE"],
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/index.js",
+		"start:http": "node dist/http-server.js",
+		"dev": "tsc && node dist/index.js",
+		"dev:http": "tsc && node dist/http-server.js",
+		"prepublishOnly": "bun run build"
+	},
+	"keywords": ["mcp", "currency", "converter"],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.8.0",
+		"express": "^4.18.2",
+		"zod": "^3.22.4"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.2.8",
+		"@types/express": "^4.17.21",
+		"@types/node": "^20.10.5",
+		"typescript": "^5.3.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yourusername/mcp-currency-converter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/yourusername/mcp-currency-converter/issues"
+	},
+	"homepage": "https://github.com/yourusername/mcp-currency-converter#readme"
+}
