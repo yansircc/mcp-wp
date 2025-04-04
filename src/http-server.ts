@@ -1,34 +1,16 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express, { type Request, type Response } from "express";
-import { z } from "zod";
-
-// Fixed exchange rate: 1 USD = 7.3 CNY
-const USD_TO_CNY_RATE = 7.3;
+import { registerAllTools } from "./entities/index.js";
 
 // Create the MCP server
 const server = new McpServer({
-	name: "Currency Converter",
+	name: "WordPress",
 	version: "1.0.0",
 });
 
-// Add USD to CNY conversion tool
-server.tool(
-	"usd-to-cny",
-	{ amount: z.number().positive() },
-	async ({ amount }: { amount: number }) => {
-		const convertedAmount = amount * USD_TO_CNY_RATE;
-
-		return {
-			content: [
-				{
-					type: "text",
-					text: `${amount} USD = ${convertedAmount.toFixed(2)} CNY (rate: ${USD_TO_CNY_RATE})`,
-				},
-			],
-		};
-	},
-);
+// Add WordPress tools
+registerAllTools(server);
 
 // Setup Express server with SSE
 const app = express();

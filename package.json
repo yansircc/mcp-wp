@@ -1,12 +1,12 @@
 {
-	"name": "@yansirplus/mcp-currency-converter",
+	"name": "@yansirplus/mcp-wp",
 	"version": "1.0.2",
-	"description": "A simple MCP server for USD to CNY conversion",
+	"description": "A simple MCP server for WordPress",
 	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"bin": {
-		"mcp-currency-converter": "dist/cli.js"
+		"mcp-wp": "dist/cli.js"
 	},
 	"files": ["dist", "README.md", "LICENSE"],
 	"scripts": {
@@ -17,7 +17,7 @@
 		"dev:http": "tsc && node dist/http-server.js",
 		"prepublishOnly": "bun run build"
 	},
-	"keywords": ["mcp", "currency", "converter"],
+	"keywords": ["mcp", "wordpress"],
 	"author": "Yansir",
 	"license": "MIT",
 	"dependencies": {

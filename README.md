@@ -1,18 +1,18 @@
 # MCP Currency Converter
 
-A simple Model Context Protocol (MCP) server that provides a USD to CNY currency conversion tool with a fixed exchange rate of 7.3.
+A Model Context Protocol (MCP) server that 
 
 ## Installation
 
 ```bash
 # Using npm
-npm install @yansirplus/mcp-currency-converter
+npm install @yansirplus/mcp-wp
 
 # Using yarn
-yarn add @yansirplus/mcp-currency-converter
+yarn add @yansirplus/mcp-wp
 
 # Using bun
-bun install @yansirplus/mcp-currency-converter
+bun install @yansirplus/mcp-wp
 ```
 
 ## Using as a CLI Tool
@@ -21,10 +21,10 @@ After installation, you can run the MCP server directly from the command line:
 
 ```bash
 # If installed globally
-mcp-currency-converter
+mcp-wp
 
 # If installed locally
-npx @yansirplus/mcp-currency-converter
+npx @yansirplus/mcp-wp
 ```
 
 This will start the MCP server in stdio mode, allowing you to connect to it with MCP clients.
@@ -33,7 +33,7 @@ This will start the MCP server in stdio mode, allowing you to connect to it with
 
 ```typescript
 // Import the server
-import { server } from "@yansirplus/mcp-currency-converter";
+import { server } from "@yansirplus/mcp-wp";
 
 // Connect to your own transport
 import { YourTransport } from "./your-transport.js";
@@ -45,7 +45,7 @@ const toolResponse = await server.callTool("usd-to-cny", { amount: 100 });
 console.log(toolResponse);
 
 // Just use the conversion function
-import { convertUsdToCny } from "@yansirplus/mcp-currency-converter";
+import { convertUsdToCny } from "@yansirplus/mcp-wp";
 console.log(convertUsdToCny(100)); // 730
 ```
 
