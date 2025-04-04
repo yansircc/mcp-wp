@@ -6,20 +6,34 @@ A simple Model Context Protocol (MCP) server that provides a USD to CNY currency
 
 ```bash
 # Using npm
-npm install mcp-currency-converter
+npm install @yansirplus/mcp-currency-converter
 
 # Using yarn
-yarn add mcp-currency-converter
+yarn add @yansirplus/mcp-currency-converter
 
 # Using bun
-bun install mcp-currency-converter
+bun install @yansirplus/mcp-currency-converter
 ```
+
+## Using as a CLI Tool
+
+After installation, you can run the MCP server directly from the command line:
+
+```bash
+# If installed globally
+mcp-currency-converter
+
+# If installed locally
+npx @yansirplus/mcp-currency-converter
+```
+
+This will start the MCP server in stdio mode, allowing you to connect to it with MCP clients.
 
 ## Using as a dependency
 
 ```typescript
 // Import the server
-import { server } from "mcp-currency-converter";
+import { server } from "@yansirplus/mcp-currency-converter";
 
 // Connect to your own transport
 import { YourTransport } from "./your-transport.js";
@@ -29,6 +43,10 @@ await server.connect(transport);
 // Or use programmatically
 const toolResponse = await server.callTool("usd-to-cny", { amount: 100 });
 console.log(toolResponse);
+
+// Just use the conversion function
+import { convertUsdToCny } from "@yansirplus/mcp-currency-converter";
+console.log(convertUsdToCny(100)); // 730
 ```
 
 ## Building

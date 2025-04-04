@@ -1,10 +1,13 @@
 {
-	"name": "mcp-currency-converter",
-	"version": "1.0.0",
+	"name": "@yansirplus/mcp-currency-converter",
+	"version": "1.0.1",
 	"description": "A simple MCP server for USD to CNY conversion",
 	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"bin": {
+		"mcp-currency-converter": "dist/cli.js"
+	},
 	"files": ["dist", "README.md", "LICENSE"],
 	"scripts": {
 		"build": "tsc",
@@ -15,7 +18,7 @@
 		"prepublishOnly": "bun run build"
 	},
 	"keywords": ["mcp", "currency", "converter"],
-	"author": "",
+	"author": "Yansir",
 	"license": "MIT",
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "^1.8.0",
@@ -35,5 +38,8 @@
 	"bugs": {
 		"url": "https://github.com/yourusername/mcp-currency-converter/issues"
 	},
-	"homepage": "https://github.com/yourusername/mcp-currency-converter#readme"
+	"homepage": "https://github.com/yourusername/mcp-currency-converter#readme",
+	"publishConfig": {
+		"access": "public"
+	}
 }
