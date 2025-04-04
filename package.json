@@ -1,6 +1,6 @@
 {
 	"name": "@yansirplus/mcp-wp",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A simple MCP server for WordPress",
 	"type": "module",
 	"main": "dist/index.js",
