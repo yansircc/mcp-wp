@@ -1,45 +1,30 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-
-// Fixed exchange rate: 1 USD = 7.3 CNY
-const USD_TO_CNY_RATE = 7.3;
+import { registerContentTools } from "./entities/content";
+import { registerAllTools } from "./entities/index.js";
+import { registerTaxonomyTools } from "./entities/taxonomy";
 
 // Create the MCP server
 const server = new McpServer({
-	name: "Currency Converter",
+	name: "MCP Demo Server",
 	version: "1.0.0",
 });
 
-// Add USD to CNY conversion tool
-server.tool(
-	"usd-to-cny",
-	{ amount: z.number().positive() },
-	async ({ amount }: { amount: number }) => {
-		const convertedAmount = amount * USD_TO_CNY_RATE;
+// 注册所有工具
+registerAllTools(server);
 
-		return {
-			content: [
-				{
-					type: "text",
-					text: `${amount} USD = ${convertedAmount.toFixed(2)} CNY (rate: ${USD_TO_CNY_RATE})`,
-				},
-			],
-		};
-	},
-);
+// Register all content-related tools
+registerContentTools(server);
 
-// Convenience function to convert USD to CNY
-export function convertUsdToCny(amount: number): number {
-	return amount * USD_TO_CNY_RATE;
-}
+// Register all taxonomy-related tools
+registerTaxonomyTools(server);
 
 // Check if this is being run directly or imported as a module
 const isMainModule = process.argv[1] === import.meta.url.substring(7);
 
 // Start the server if this is the main module
 if (isMainModule) {
-	console.log("Starting Currency Converter MCP server...");
+	console.log("Starting MCP Demo Server...");
 	const transport = new StdioServerTransport();
 	server.connect(transport).catch((error) => {
 		console.error("Error running server:", error);
@@ -48,4 +33,4 @@ if (isMainModule) {
 }
 
 // Export for programmatic usage
-export { server, USD_TO_CNY_RATE };
+export { server };

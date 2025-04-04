@@ -1,0 +1,61 @@
+import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { registerBulkCreateTermsTool } from "./bulk-create-terms";
+import { registerBulkDeleteTermsTool } from "./bulk-delete-terms";
+import { registerCreateTermTool } from "./create-term";
+import { registerDeleteTermTool } from "./delete-term";
+import { registerGetTermByIdTool } from "./get-term-by-id";
+import { registerGetTermBySlugTool } from "./get-term-by-slug";
+import { registerListTaxonomiesTool } from "./list-taxonomies";
+import { registerListTermsTool } from "./list-terms";
+import { registerQueryTermsTool } from "./query-terms";
+import { registerUpdateTermTool } from "./update-term";
+
+// Collection of all taxonomy tool registrators
+const taxonomyToolRegistrators = {
+	listTaxonomies: registerListTaxonomiesTool,
+	listTerms: registerListTermsTool,
+	getTerm: registerGetTermByIdTool,
+	getTermBySlug: registerGetTermBySlugTool,
+	createTerm: registerCreateTermTool,
+	updateTerm: registerUpdateTermTool,
+	deleteTerm: registerDeleteTermTool,
+	bulkCreateTerms: registerBulkCreateTermsTool,
+	bulkDeleteTerms: registerBulkDeleteTermsTool,
+	queryTerms: registerQueryTermsTool,
+};
+
+// Register all taxonomy-related tools
+export function registerTaxonomyTools(server: McpServer): McpServer {
+	// Apply all registrators to the server
+	for (const registrator of Object.values(taxonomyToolRegistrators)) {
+		registrator(server);
+	}
+	return server;
+}
+
+// Register specific taxonomy tools
+export function registerSpecificTaxonomyTools(
+	server: McpServer,
+	toolNames: Array<keyof typeof taxonomyToolRegistrators>,
+): McpServer {
+	for (const name of toolNames) {
+		const registrator = taxonomyToolRegistrators[name];
+		registrator(server);
+	}
+	return server;
+}
+
+// Export all tools for individual use
+export * from "./list-taxonomies";
+export * from "./list-terms";
+export * from "./get-term-by-id";
+export * from "./get-term-by-slug";
+export * from "./create-term";
+export * from "./update-term";
+export * from "./delete-term";
+export * from "./bulk-create-terms";
+export * from "./bulk-delete-terms";
+export * from "./query-terms";
+
+// Export tool registrators collection
+export { taxonomyToolRegistrators };
