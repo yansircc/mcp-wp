@@ -1,13 +1,13 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { WP_REST_API_Post } from "wp-types";
 import type { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
+import { fetchWpApi } from "../../lib/api-client.js";
 import {
 	contentIdSchema,
 	contentTypeSchema,
 	formatContentResponse,
 	formatErrorResponse,
-} from "./utils";
+} from "./utils.js";
 
 // Define input schema
 export const getContentByIdSchema = contentTypeSchema.merge(contentIdSchema);

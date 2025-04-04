@@ -1,10 +1,10 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { fetchWpApi } from "../../lib/api-client";
+import { fetchWpApi } from "../../lib/api-client.js";
 import {
 	formatErrorResponse,
 	formatSettingsResponse,
 	getSettingsSchema,
-} from "./utils";
+} from "./utils.js";
 
 // Define input schema (reusing from utils)
 export const getSettingsInputSchema = getSettingsSchema;

@@ -1,9 +1,9 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerContentTools } from "./content";
-import { registerSettingsTools } from "./settings";
-import { registerTaxonomyTools } from "./taxonomy";
-import { registerThemeTools } from "./theme";
-import { registerUserTools } from "./user";
+import { registerContentTools } from "./content/index.js";
+import { registerSettingsTools } from "./settings/index.js";
+import { registerTaxonomyTools } from "./taxonomy/index.js";
+import { registerThemeTools } from "./theme/index.js";
+import { registerUserTools } from "./user/index.js";
 
 // 注册所有工具的函数
 export function registerAllTools(server: McpServer): McpServer {

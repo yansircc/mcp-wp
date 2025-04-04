@@ -1,13 +1,13 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
+import { fetchWpApi } from "../../lib/api-client.js";
 import {
 	advancedTermQuerySchema,
 	formatErrorResponse,
 	formatTermListResponse,
 	prepareApiParams,
 	taxonomyTypeSchema,
-} from "./utils";
+} from "./utils.js";
 
 // Define input schema
 export const queryTermsSchema = taxonomyTypeSchema.merge(

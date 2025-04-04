@@ -1,12 +1,11 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { z } from "zod";
-import { env } from "../../env";
-import { fetchWpApi } from "../../lib/api-client";
+import { fetchWpApi } from "../../lib/api-client.js";
 import {
 	formatErrorResponse,
 	formatUserListResponse,
 	userListQuerySchema,
-} from "./utils";
+} from "./utils.js";
 
 // Input schema for the list users tool
 export const listUsersInputSchema = userListQuerySchema;
@@ -39,7 +38,7 @@ export const listUsersHandler = async (
 
 		// Since we can't directly access headers from fetchWpApi,
 		// make a separate fetch to get the headers for total count
-		const url = new URL(`${env.WORDPRESS_API_URL}/wp-json/wp/v2/users`);
+		const url = new URL(`${process.env.WORDPRESS_API_URL}/wp-json/wp/v2/users`);
 		if (params) {
 			for (const [key, value] of Object.entries(params)) {
 				if (Array.isArray(value)) {
@@ -54,7 +53,9 @@ export const listUsersHandler = async (
 		const headResponse = await fetch(url.toString(), {
 			method: "HEAD",
 			headers: {
-				Authorization: `Basic ${btoa(`${env.WORDPRESS_USERNAME}:${env.WORDPRESS_APPLICATION_PASSWORD}`)}`,
+				Authorization: `Basic ${btoa(
+					`${process.env.WORDPRESS_USERNAME}:${process.env.WORDPRESS_APPLICATION_PASSWORD}`,
+				)}`,
 			},
 		});
 

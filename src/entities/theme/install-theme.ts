@@ -1,7 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
-import { formatErrorResponse, themeInstallSchema } from "./utils";
+import { fetchWpApi } from "../../lib/api-client.js";
+import { formatErrorResponse, themeInstallSchema } from "./utils.js";
 
 // Define input schema
 export const installThemeSchema = themeInstallSchema;

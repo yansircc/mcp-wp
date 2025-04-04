@@ -1,5 +1,3 @@
-import { env } from "../env";
-
 interface FetchOptions extends RequestInit {
 	needsAuth?: boolean;
 	params?: Record<string, string | number | string[]>;
@@ -20,7 +18,7 @@ export async function fetchWpApi<T>(
 ): Promise<T> {
 	const { needsAuth = false, params, ...fetchOptions } = options;
 
-	const url = new URL(`${env.WORDPRESS_API_URL}/wp-json${endpoint}`);
+	const url = new URL(`${process.env.WORDPRESS_API_URL}/wp-json${endpoint}`);
 
 	// Append query parameters if provided
 	if (params) {
@@ -39,7 +37,9 @@ export async function fetchWpApi<T>(
 	if (needsAuth) {
 		headers.set(
 			"Authorization",
-			`Basic ${btoa(`${env.WORDPRESS_USERNAME}:${env.WORDPRESS_APPLICATION_PASSWORD}`)}`,
+			`Basic ${btoa(
+				`${process.env.WORDPRESS_USERNAME}:${process.env.WORDPRESS_APPLICATION_PASSWORD}`,
+			)}`,
 		);
 	}
 

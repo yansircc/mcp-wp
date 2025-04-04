@@ -1,7 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
-import { formatErrorResponse, formatUserResponse, userIdSchema } from "./utils";
+import { fetchWpApi } from "../../lib/api-client.js";
+import { formatErrorResponse, formatUserResponse, userIdSchema } from "./utils.js";
 
 // Input schema for the get user tool
 export const getUserInputSchema = userIdSchema;

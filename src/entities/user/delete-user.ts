@@ -1,7 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
-import { formatErrorResponse, userIdSchema } from "./utils";
+import { fetchWpApi } from "../../lib/api-client.js";
+import { formatErrorResponse, userIdSchema } from "./utils.js";
 
 // Input schema for the delete user tool - ID and optional force delete and reassign
 export const deleteUserInputSchema = userIdSchema.extend({

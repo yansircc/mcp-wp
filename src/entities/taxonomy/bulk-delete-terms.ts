@@ -1,7 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
-import { formatErrorResponse, taxonomyTypeSchema } from "./utils";
+import { fetchWpApi } from "../../lib/api-client.js";
+import { formatErrorResponse, taxonomyTypeSchema } from "./utils.js";
 
 // Define input schema
 export const bulkDeleteTermsSchema = taxonomyTypeSchema.extend({

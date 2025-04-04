@@ -1,12 +1,12 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
+import { fetchWpApi } from "../../lib/api-client.js";
 import {
 	formatErrorResponse,
 	formatUserResponse,
 	userIdSchema,
 	userUpdateSchema,
-} from "./utils";
+} from "./utils.js";
 
 // Input schema for the update user tool - combines ID and update data
 export const updateUserInputSchema = userIdSchema.extend({

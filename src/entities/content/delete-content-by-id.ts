@@ -1,12 +1,12 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { z } from "zod";
-import { fetchWpApi } from "../../lib/api-client";
+import { fetchWpApi } from "../../lib/api-client.js";
 import {
 	contentDeleteSchema,
 	contentIdSchema,
 	contentTypeSchema,
 	formatErrorResponse,
-} from "./utils";
+} from "./utils.js";
 
 // Define input schema
 export const deleteContentByIdSchema = contentTypeSchema

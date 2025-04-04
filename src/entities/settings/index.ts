@@ -1,6 +1,6 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerGetSettingsTool } from "./get-settings";
-import { registerUpdateSettingsTool } from "./update-settings";
+import { registerGetSettingsTool } from "./get-settings.js";
+import { registerUpdateSettingsTool } from "./update-settings.js";
 
 // Collection of all settings tool registrators
 const settingsToolRegistrators = {
@@ -30,8 +30,8 @@ export function registerSpecificSettingsTools(
 }
 
 // Export all tools for individual use
-export * from "./get-settings";
-export * from "./update-settings";
+export * from "./get-settings.js";
+export * from "./update-settings.js";
 
 // Export tool registrators collection
 export { settingsToolRegistrators };

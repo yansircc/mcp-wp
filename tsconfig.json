@@ -8,13 +8,15 @@
 		"resolveJsonModule": true,
 		"moduleDetection": "force",
 		"isolatedModules": true,
-		"verbatimModuleSyntax": true,
+		"verbatimModuleSyntax": false,
 
 		/* Bundled projects */
 		"lib": ["dom", "dom.iterable", "ES2022"],
-		"noEmit": true,
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"noEmit": false,
+		"outDir": "dist",
+		"declaration": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 		"jsx": "preserve",
 		"incremental": true,
 

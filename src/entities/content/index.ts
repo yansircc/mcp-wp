@@ -1,13 +1,13 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerBulkCreateContentTool } from "./bulk-create-content";
-import { registerBulkDeleteContentTool } from "./bulk-delete-content";
-import { registerCreateContentTool } from "./create-content";
-import { registerDeleteContentByIdTool } from "./delete-content-by-id";
-import { registerGetContentByIdTool } from "./get-content-by-id";
-import { registerListContentTool } from "./list-content";
-import { registerListContentTypesTool } from "./list-content-types";
-import { registerQueryContentTool } from "./query-content";
-import { registerUpdateContentTool } from "./update-content";
+import { registerBulkCreateContentTool } from "./bulk-create-content.js";
+import { registerBulkDeleteContentTool } from "./bulk-delete-content.js";
+import { registerCreateContentTool } from "./create-content.js";
+import { registerDeleteContentByIdTool } from "./delete-content-by-id.js";
+import { registerGetContentByIdTool } from "./get-content-by-id.js";
+import { registerListContentTool } from "./list-content.js";
+import { registerListContentTypesTool } from "./list-content-types.js";
+import { registerQueryContentTool } from "./query-content.js";
+import { registerUpdateContentTool } from "./update-content.js";
 
 // Collection of all content tool registrators
 const contentToolRegistrators = {
@@ -44,15 +44,15 @@ export function registerSpecificContentTools(
 }
 
 // Export all tools for individual use
-export * from "./create-content";
-export * from "./bulk-create-content";
-export * from "./delete-content-by-id";
-export * from "./bulk-delete-content";
-export * from "./get-content-by-id";
-export * from "./list-content";
-export * from "./list-content-types";
-export * from "./query-content";
-export * from "./update-content";
+export * from "./create-content.js";
+export * from "./bulk-create-content.js";
+export * from "./delete-content-by-id.js";
+export * from "./bulk-delete-content.js";
+export * from "./get-content-by-id.js";
+export * from "./list-content.js";
+export * from "./list-content-types.js";
+export * from "./query-content.js";
+export * from "./update-content.js";
 
 // Export tool registrators collection
 export { contentToolRegistrators };
