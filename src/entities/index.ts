@@ -4,9 +4,6 @@ import { registerTaxonomyTools } from "./taxonomy";
 
 // 注册所有工具的函数
 export function registerAllTools(server: McpServer): McpServer {
-	// 注册 WordPress 文章工具
-	// post.registerPostTools(server);
-
 	// 注册 WordPress 内容工具
 	registerContentTools(server);
 
@@ -15,7 +12,3 @@ export function registerAllTools(server: McpServer): McpServer {
 
 	return server;
 }
-
-// Export all entity modules
-export * from "./content";
-export * from "./taxonomy";

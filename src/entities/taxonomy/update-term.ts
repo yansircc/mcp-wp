@@ -24,25 +24,6 @@ export const updateTermHandler = async ({
 	meta,
 }: z.infer<typeof updateTermSchema>) => {
 	try {
-		// Validate that at least one field is provided
-		if (
-			name === undefined &&
-			slug === undefined &&
-			description === undefined &&
-			parent === undefined &&
-			meta === undefined
-		) {
-			return {
-				content: [
-					{
-						type: "text" as const,
-						text: `更新${type}失败: 至少需要提供 name, slug, description, parent 或 meta 中的一个`,
-					},
-				],
-				isError: true,
-			};
-		}
-
 		// Create update payload with only the fields that are provided
 		const updateData: Record<string, unknown> = {};
 		if (name !== undefined) updateData.name = name;
@@ -50,6 +31,19 @@ export const updateTermHandler = async ({
 		if (description !== undefined) updateData.description = description;
 		if (parent !== undefined) updateData.parent = parent;
 		if (meta !== undefined) updateData.meta = meta;
+
+		// Ensure we have at least one field to update
+		if (Object.keys(updateData).length === 0) {
+			return {
+				content: [
+					{
+						type: "text" as const,
+						text: `更新${type}失败: 请提供至少一个需要更新的字段`,
+					},
+				],
+				isError: true,
+			};
+		}
 
 		const response = await fetchWpApi<any>(`${endpoint}/${id}`, {
 			method: "PUT",
