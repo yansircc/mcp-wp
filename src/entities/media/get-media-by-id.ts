@@ -53,7 +53,7 @@ export const getMediaByIdHandler = async (
         },
         {
           type: 'text' as const,
-          text: `描述: ${item.description.rendered}`,
+          text: `描述: ${item.description?.rendered}`,
         },
         {
           type: 'text' as const,
