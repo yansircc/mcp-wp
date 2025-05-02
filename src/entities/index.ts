@@ -1,5 +1,6 @@
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { registerContentTools } from './content/index.js';
+import { registerPluginTools } from './plugin/index.js';
 import { registerSettingsTools } from './settings/index.js';
 import { registerTaxonomyTools } from './taxonomy/index.js';
 import { registerThemeTools } from './theme/index.js';
@@ -19,6 +20,9 @@ export function registerAllTools(server: McpServer): McpServer {
 
   // 注册 WordPress 主题工具
   registerThemeTools(server);
+
+  // 注册 WordPress 插件工具
+  registerPluginTools(server);
 
   // 注册 WordPress 设置工具
   registerSettingsTools(server);
